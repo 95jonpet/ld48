@@ -7,6 +7,17 @@ var level_number: int = 1
 func _ready():
 	assert(SceneChanger.connect("scene_loaded", self, "_on_level_changed") == OK)
 	_on_level_changed()
+	change_level(level_number) # Trigger scene change when entering the first level.
+
+func change_level(level: int):
+	var level_file_path = "res://levels/Level" + str(level) + ".tscn"
+	var level_file_exists = File.new().file_exists(level_file_path)
+	
+	if level_file_exists:
+		SceneChanger.change_scene(level_file_path, $Level, "Level " + str(level))
+	else:
+		# TODO: Handle game end with all levels completed.
+		assert(get_tree().reload_current_scene() == OK)
 
 func _on_grid_placeholder_clicked(placeholder):
 	if not can_place_item:
@@ -34,14 +45,7 @@ func _on_grid_placeholder_clicked(placeholder):
 			if $Level.is_completed():
 				level_number += 1
 			
-			var level_file_path = "res://levels/Level" + str(level_number) + ".tscn"
-			var level_file_exists = File.new().file_exists(level_file_path)
-			
-			if level_file_exists:
-				SceneChanger.change_scene(level_file_path, $Level)
-			else:
-				# TODO: Handle game end with all levels completed.
-				get_tree().reload_current_scene()
+			change_level(level_number)
 
 func _on_level_changed(level: Node = null):
 	active_item_index = 0
