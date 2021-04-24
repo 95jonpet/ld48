@@ -1,7 +1,7 @@
 extends StaticBody2D
 
 func destroy():
-	$CollisionShape2D.disabled = true
+	$CollisionShape2D.set_deferred("disabled", true)
 	hide()
 	
 	$DestroyedSound.play()
