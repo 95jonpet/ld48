@@ -1,3 +1,5 @@
+# Project-specific ignores
+screenshots/*.import
 
 # Godot-specific ignores
 .import/
