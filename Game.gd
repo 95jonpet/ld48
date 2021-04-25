@@ -42,6 +42,7 @@ func change_level(level: int):
 	else:
 		# All levels have been completed.
 		# Restart the game from the first level.
+		yield($LevelWin, "finished")
 		var reload_status = get_tree().reload_current_scene()
 		assert(reload_status == OK)
 
