@@ -26,6 +26,7 @@ func change_level(level: int):
 	var level_file_exists = File.new().file_exists(level_file_path)
 	
 	if level_file_exists:
+		level_number = level
 		SceneChanger.change_scene(level_file_path, $Level, "Level " + str(level))
 	else:
 		# TODO: Handle game end with all levels completed.
@@ -42,6 +43,10 @@ func trigger_level_change_if_needed():
 			level_number += 1
 		
 		change_level(level_number)
+
+func _input(event):
+	if event.is_action_pressed("level_skip"):
+		change_level(level_number + 1)
 
 func _on_grid_placeholder_clicked(placeholder):
 	if not can_place_item:
