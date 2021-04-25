@@ -12,7 +12,7 @@
     <img src="icon.png" alt="Logo" width="64" height="64">
   </a>
 
-  <h1 align="center">Dynamite depths</h1>
+  <h1 align="center">Dynamite Depths</h1>
 
   <p align="center">
     A small puzzle game made in 48 hours for <a href="https://ldjam.com/events/ludum-dare/48">Ludum Dare 48</a>.
