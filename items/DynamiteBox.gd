@@ -8,10 +8,12 @@ onready var game = $"../.."
 func destroy():
 	game.register_level_lock(self)
 	$AnimationPlayer.play("Flash")
+	$FuseSound.play()
 	$Timer.call_deferred("start")
 	yield($Timer, "timeout")
 
 func _on_Timer_timeout():
+	$FuseSound.stop()
 	$ExplosionSound.play()
 	hide()
 	

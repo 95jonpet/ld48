@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/level_lose.wav-ad7c1e3f063481a292a983a4629e0232.sample"
+
+[deps]
+
+source_file="res://effects/level_lose.wav"
+dest_files=[ "res://.import/level_lose.wav-ad7c1e3f063481a292a983a4629e0232.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://levels/Level0.tscn" type="PackedScene" id=1]
 [ext_resource path="res://grid/grid_item_placed.wav" type="AudioStream" id=2]
 [ext_resource path="res://music/main_music.wav" type="AudioStream" id=3]
+[ext_resource path="res://effects/level_win.wav" type="AudioStream" id=4]
 [ext_resource path="res://ui/Interface.tscn" type="PackedScene" id=5]
+[ext_resource path="res://effects/level_lose.wav" type="AudioStream" id=6]
 [ext_resource path="res://Game.gd" type="Script" id=8]
 
 [node name="Game" type="Node2D"]
@@ -19,15 +21,21 @@ zoom = Vector2( 0.5, 0.5 )
 margin_top = -68.0
 margin_bottom = 67.0
 
+[node name="TurnTimer" type="Timer" parent="."]
+
 [node name="GridItemPlaced" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
-
-[node name="TurnTimer" type="Timer" parent="."]
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 volume_db = -8.0
 autoplay = true
 bus = "Music"
+
+[node name="LevelWin" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[node name="LevelLose" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
 
 [connection signal="finished" from="MusicPlayer" to="MusicPlayer" method="play"]

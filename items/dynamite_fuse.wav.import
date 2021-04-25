@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/dynamite_fuse.wav-367f1e6aca013d8ec0a02ca58f8eebdc.sample"
+
+[deps]
+
+source_file="res://items/dynamite_fuse.wav"
+dest_files=[ "res://.import/dynamite_fuse.wav-367f1e6aca013d8ec0a02ca58f8eebdc.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

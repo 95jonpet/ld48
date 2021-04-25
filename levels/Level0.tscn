@@ -7,7 +7,9 @@
 script = ExtResource( 8 )
 level_name = "Dynamite depths"
 level_hint = "Made by Peter Jonsson
-For Ludum Dare 48"
+For Ludum Dare 48
+
+peterjonsson.se"
 
 [node name="Grid" parent="." instance=ExtResource( 3 )]
 

@@ -39,7 +39,8 @@ func change_level(level: int):
 		level_number = level
 		SceneChanger.change_scene(level_file_path, $Level, "Level " + str(level))
 	else:
-		# TODO: Handle game end with all levels completed.
+		# All levels have been completed.
+		# Restart the game from the first level.
 		assert(get_tree().reload_current_scene() == OK)
 
 func trigger_level_change_if_needed():
@@ -50,8 +51,10 @@ func trigger_level_change_if_needed():
 	if active_item_index == $Level.items.size():
 		# All items have been used. Check for win/loss.
 		if $Level.is_completed():
+			$LevelWin.play()
 			change_level(level_number + 1)
 		else:
+			$LevelLose.play()
 			change_level(level_number)
 
 func _input(event):
