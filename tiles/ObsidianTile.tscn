@@ -7,7 +7,7 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 8.0
 
-[node name="StoneTile" type="StaticBody2D" groups=[
+[node name="ObsidianTile" type="StaticBody2D" groups=[
 "destructible",
 ]]
 script = ExtResource( 2 )

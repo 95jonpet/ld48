@@ -12,3 +12,6 @@ func _on_Explosion_body_entered(body):
 			body.destroy()
 		else:
 			body.queue_free()
+
+func _on_HideTimer_timeout():
+	hide()
