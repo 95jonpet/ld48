@@ -15,6 +15,7 @@ func destroy():
 func _on_Timer_timeout():
 	$FuseSound.stop()
 	$ExplosionSound.play()
+	game.request_screen_shake(0.6, 15, 16)
 	hide()
 	
 	# Inner plus.

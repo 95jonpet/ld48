@@ -10,6 +10,7 @@ func _ready():
 
 func _on_Timer_timeout():
 	$ExplosionSound.play()
+	game.request_screen_shake(0.4)
 	hide()
 	
 	var centerExplosion = add_explosion(position)

@@ -3,6 +3,8 @@ extends Node2D
 const FIRST_LEVEL_NUMBER = 1 # The level to go to after showing an initial starting screen.
 
 onready var ui_animation = $Camera/Interface/AnimationPlayer
+onready var ui_interface = $Camera/Interface
+onready var screen_shake = $Camera/ScreenShake
 
 var active_item_index: int = 0
 var can_place_item: bool = true
@@ -31,6 +33,9 @@ func register_level_lock(lock):
 func unregister_level_lock(lock):
 	level_locks.erase(lock)
 	trigger_level_change_if_needed()
+
+func request_screen_shake(duration: float = 0.2, frequency: float = 15, amplitude: float = 8, priority: int = 0):
+	screen_shake.start(duration, frequency, amplitude, priority)
 
 func change_level(level: int):
 	var level_file_path = "res://levels/Level" + str(level) + ".tscn"
@@ -81,7 +86,7 @@ func _on_grid_placeholder_clicked(placeholder):
 		can_place_item = true
 		
 		active_item_index += 1
-		$Camera/Interface.set_inventory_active_item(active_item_index)
+		ui_interface.set_inventory_active_item(active_item_index)
 		
 		$TurnTimer.call_deferred("start")
 		yield($TurnTimer, "timeout")
@@ -89,8 +94,8 @@ func _on_grid_placeholder_clicked(placeholder):
 func _on_level_changed(level: Node = null):
 	ui_animation.stop()
 	active_item_index = 0
-	$Camera/Interface.set_inventory_items(level.items if level else $Level.items)
-	$Camera/Interface.set_inventory_active_item(active_item_index)
+	ui_interface.set_inventory_items(level.items if level else $Level.items)
+	ui_interface.set_inventory_active_item(active_item_index)
 	
 	yield(get_tree().create_timer(3), "timeout")
 	ui_animation.play("ui-load")

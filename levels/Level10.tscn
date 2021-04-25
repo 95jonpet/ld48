@@ -13,7 +13,7 @@ script = ExtResource( 8 )
 __meta__ = {
 "_edit_lock_": true
 }
-level_hint = "All is possible"
+level_hint = "The bottom"
 items = [ ExtResource( 1 ), ExtResource( 6 ), ExtResource( 1 ) ]
 
 [node name="Grid" parent="." instance=ExtResource( 3 )]
