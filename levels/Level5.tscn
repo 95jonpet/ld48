@@ -47,8 +47,8 @@ __meta__ = {
 [node name="StoneTile2" parent="Tiles" instance=ExtResource( 2 )]
 position = Vector2( -12, 24 )
 
-[node name="RubyTile" parent="." instance=ExtResource( 6 )]
+[node name="RubyTile" parent="Tiles" instance=ExtResource( 6 )]
 position = Vector2( 36, 0 )
 
-[node name="StoneTile" parent="." instance=ExtResource( 2 )]
+[node name="StoneTile" parent="Tiles" instance=ExtResource( 2 )]
 position = Vector2( -36, 0 )
