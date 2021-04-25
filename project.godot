@@ -20,8 +20,11 @@ _global_script_class_icons={
 
 [application]
 
-config/name="ld48"
+config/name="Dynamite depths"
+config/description="Made by Peter Jonsson for Ludum Dare 48."
 run/main_scene="res://Game.tscn"
+boot_splash/fullsize=false
+boot_splash/use_filter=false
 config/icon="res://icon.png"
 
 [autoload]

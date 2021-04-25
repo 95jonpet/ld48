@@ -1,5 +1,7 @@
 extends Node2D
 
+const FIRST_LEVEL_NUMBER = 1 # The level to go to after showing an initial starting screen.
+
 onready var ui_animation = $Camera/Interface/AnimationPlayer
 
 var active_item_index: int = 0
@@ -16,7 +18,7 @@ func _ready():
 	yield(SceneChanger, "scene_loaded")
 	yield(get_tree().create_timer(3), "timeout")
 	SceneChanger.changing_scene = false # Allow scene change to be forced.
-	change_level(1)
+	change_level(FIRST_LEVEL_NUMBER)
 
 func register_level_lock(lock):
 	if level_locks.has(lock):
