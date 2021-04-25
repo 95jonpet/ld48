@@ -35,11 +35,11 @@ This game was made by Peter Jonsson in 48 hours using [Godot](https://godotengin
 
 ## Screenshots
 
-<img src="screenshots/screenshot_1.png" alt="Screenshot" width="960" height="540">
-
-<img src="screenshots/screenshot_2.png" alt="Screenshot" width="960" height="540">
-
-<img src="screenshots/screenshot_3.png" alt="Screenshot" width="960" height="540">
+<img src="screenshots/screenshot_1.png" alt="Screenshot" width="480" height="270">
+<br />
+<img src="screenshots/screenshot_2.png" alt="Screenshot" width="480" height="270">
+<br />
+<img src="screenshots/screenshot_3.png" alt="Screenshot" width="480" height="270">
 
 ## License
 
