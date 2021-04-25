@@ -15,6 +15,8 @@ current = true
 zoom = Vector2( 0.5, 0.5 )
 
 [node name="Interface" parent="Camera" instance=ExtResource( 5 )]
+margin_top = -68.0
+margin_bottom = 67.0
 
 [node name="GridItemPlaced" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )

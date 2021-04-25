@@ -3,7 +3,10 @@ extends KinematicBody2D
 const Explosion = preload("res://effects/Explosion.tscn")
 const EXPLOSION_OFFSET = 24
 
+onready var game = $"../.."
+
 func destroy():
+	game.register_level_lock(self)
 	$AnimationPlayer.play("Flash")
 	$Timer.call_deferred("start")
 	yield($Timer, "timeout")
@@ -32,6 +35,7 @@ func _on_Timer_timeout():
 	assert(add_explosion(position + Vector2(EXPLOSION_OFFSET, EXPLOSION_OFFSET)) != null)
 	
 	yield(centerExplosion, "cleared")
+	game.unregister_level_lock(self)
 	queue_free()
 
 func add_explosion(position: Vector2) -> Node2D:
