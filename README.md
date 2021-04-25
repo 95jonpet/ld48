@@ -15,7 +15,7 @@
   <h1 align="center">Dynamite depths</h1>
 
   <p align="center">
-    A small puzzle game in 48 hours for <a href="https://ldjam.com/events/ludum-dare/48">Ludum Dare 48</a>.
+    A small puzzle game made in 48 hours for <a href="https://ldjam.com/events/ludum-dare/48">Ludum Dare 48</a>.
     <br />
     <a href="https://ldjam.com/events/ludum-dare/48/dynamite-depths"><strong>Play the game »</strong></a>
     <br />
