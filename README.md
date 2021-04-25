@@ -17,7 +17,7 @@
   <p align="center">
     A small puzzle game made in 48 hours for <a href="https://ldjam.com/events/ludum-dare/48">Ludum Dare 48</a>.
     <br />
-    <a href="https://ldjam.com/events/ludum-dare/48/dynamite-depths"><strong>Play the game »</strong></a>
+    <a href="https://digitea.itch.io/dynamite-depths"><strong>Play the game »</strong></a>
     <br />
     <br />
     <a href="https://ldjam.com/events/ludum-dare/48/dynamite-depths">View Entry</a>
@@ -26,7 +26,12 @@
   </p>
 </p>
 
-This game was made in 48 hours using [Godot](https://godotengine.org/).
+Descend into the depths by blasting though rocks with nothing but dynamite.
+
+Control the game using your mouse.
+Levels can be skipped using the `N` key.
+
+This game was made by Peter Jonsson in 48 hours using [Godot](https://godotengine.org/).
 
 ## License
 
