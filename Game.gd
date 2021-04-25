@@ -4,13 +4,19 @@ onready var ui_animation = $Camera/Interface/AnimationPlayer
 
 var active_item_index: int = 0
 var can_place_item: bool = true
-var level_number: int = 1
+var level_number: int = 0
 var level_locks = []
 
 func _ready():
 	assert(SceneChanger.connect("scene_loaded", self, "_on_level_changed") == OK)
-	_on_level_changed()
-	change_level(level_number) # Trigger scene change when entering the first level.
+	change_level(0)
+	
+	# Trigger scene change when entering the first level.
+	# Wait a few seconds first in order to show the starting screen.
+	yield(SceneChanger, "scene_loaded")
+	yield(get_tree().create_timer(3), "timeout")
+	SceneChanger.changing_scene = false # Allow scene change to be forced.
+	change_level(1)
 
 func register_level_lock(lock):
 	if level_locks.has(lock):
@@ -29,7 +35,6 @@ func change_level(level: int):
 	
 	if level_file_exists:
 		level_number = level
-		ui_animation.play_backwards("ui-load")
 		SceneChanger.change_scene(level_file_path, $Level, "Level " + str(level))
 	else:
 		# TODO: Handle game end with all levels completed.
@@ -43,12 +48,12 @@ func trigger_level_change_if_needed():
 	if active_item_index == $Level.items.size():
 		# All items have been used. Check for win/loss.
 		if $Level.is_completed():
-			level_number += 1
-		
-		change_level(level_number)
+			change_level(level_number + 1)
+		else:
+			change_level(level_number)
 
 func _input(event):
-	if event.is_action_pressed("level_skip"):
+	if event.is_action_pressed("level_skip") and level_number > 0:
 		change_level(level_number + 1)
 
 func _on_grid_placeholder_clicked(placeholder):
@@ -72,8 +77,6 @@ func _on_grid_placeholder_clicked(placeholder):
 		
 		$TurnTimer.call_deferred("start")
 		yield($TurnTimer, "timeout")
-		
-		#trigger_level_change_if_needed()
 
 func _on_level_changed(level: Node = null):
 	ui_animation.stop()

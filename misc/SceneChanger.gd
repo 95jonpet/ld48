@@ -8,10 +8,16 @@ onready var level_name_label = $Control/VBoxContainer/LevelNameLabel
 onready var level_hint_label = $Control/VBoxContainer/LevelHintLabel
 onready var black = $Black
 
+var changing_scene = false
+
 func _ready():
 	animation_player.stop()
 
 func change_scene(path: String, old_level: Node, level_name: String = ""):
+	if changing_scene:
+		return
+	changing_scene = true
+	
 	animation_player.stop()
 	
 	# Instantiate the new level.
@@ -20,7 +26,7 @@ func change_scene(path: String, old_level: Node, level_name: String = ""):
 	var pos_in_parent = old_level.get_position_in_parent()
 	
 	# Fade out the screen.
-	level_name_label.text = level_name
+	level_name_label.text = new_level.level_name if new_level.level_name else level_name
 	level_hint_label.text = new_level.level_hint
 	animation_player.play("Fade")
 	yield(animation_player, "animation_finished")
@@ -45,4 +51,6 @@ func change_scene(path: String, old_level: Node, level_name: String = ""):
 	animation_player.play_backwards("Fade")
 	yield(animation_player, "animation_finished")
 	animation_player.stop()
-	emit_signal("scene_changed")	
+	emit_signal("scene_changed")
+	
+	changing_scene = false
