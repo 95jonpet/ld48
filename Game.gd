@@ -10,7 +10,8 @@ var level_number: int = 0
 var level_locks = []
 
 func _ready():
-	assert(SceneChanger.connect("scene_loaded", self, "_on_level_changed") == OK)
+	var connection_status = SceneChanger.connect("scene_loaded", self, "_on_level_changed")
+	assert(connection_status == OK)
 	change_level(0)
 	
 	# Trigger scene change when entering the first level.
@@ -41,7 +42,8 @@ func change_level(level: int):
 	else:
 		# All levels have been completed.
 		# Restart the game from the first level.
-		assert(get_tree().reload_current_scene() == OK)
+		var reload_status = get_tree().reload_current_scene()
+		assert(reload_status == OK)
 
 func trigger_level_change_if_needed():
 	# The level cannot be locked by any nodes.

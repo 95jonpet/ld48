@@ -9,7 +9,8 @@ var active: bool = false
 onready var game_node = $"../../.."
 
 func _ready():
-	assert(connect("clicked", game_node, "_on_grid_placeholder_clicked", [self]) == OK)
+	var connection_status = connect("clicked", game_node, "_on_grid_placeholder_clicked", [self])
+	assert(connection_status == OK)
 	update_texture()
 
 func update_texture():

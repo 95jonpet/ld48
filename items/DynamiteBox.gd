@@ -19,28 +19,28 @@ func _on_Timer_timeout():
 	
 	# Inner plus.
 	var centerExplosion = add_explosion(position)
-	assert(add_explosion(position - Vector2(EXPLOSION_OFFSET, 0)) != null)
-	assert(add_explosion(position + Vector2(EXPLOSION_OFFSET, 0)) != null)
-	assert(add_explosion(position - Vector2(0, EXPLOSION_OFFSET)) != null)
-	assert(add_explosion(position + Vector2(0, EXPLOSION_OFFSET)) != null)
+	add_explosion(position - Vector2(EXPLOSION_OFFSET, 0))
+	add_explosion(position + Vector2(EXPLOSION_OFFSET, 0))
+	add_explosion(position - Vector2(0, EXPLOSION_OFFSET))
+	add_explosion(position + Vector2(0, EXPLOSION_OFFSET))
 	
 	# Outer plus.
-	assert(add_explosion(position - Vector2(EXPLOSION_OFFSET, 0) * 2) != null)
-	assert(add_explosion(position + Vector2(EXPLOSION_OFFSET, 0) * 2) != null)
-	assert(add_explosion(position - Vector2(0, EXPLOSION_OFFSET) * 2) != null)
-	assert(add_explosion(position + Vector2(0, EXPLOSION_OFFSET) * 2) != null)
+	add_explosion(position - Vector2(EXPLOSION_OFFSET, 0) * 2)
+	add_explosion(position + Vector2(EXPLOSION_OFFSET, 0) * 2)
+	add_explosion(position - Vector2(0, EXPLOSION_OFFSET) * 2)
+	add_explosion(position + Vector2(0, EXPLOSION_OFFSET) * 2)
 	
 	# Corners.
-	assert(add_explosion(position + Vector2(-EXPLOSION_OFFSET, -EXPLOSION_OFFSET)) != null)
-	assert(add_explosion(position + Vector2(EXPLOSION_OFFSET, -EXPLOSION_OFFSET)) != null)
-	assert(add_explosion(position + Vector2(-EXPLOSION_OFFSET, EXPLOSION_OFFSET)) != null)
-	assert(add_explosion(position + Vector2(EXPLOSION_OFFSET, EXPLOSION_OFFSET)) != null)
+	add_explosion(position + Vector2(-EXPLOSION_OFFSET, -EXPLOSION_OFFSET))
+	add_explosion(position + Vector2(EXPLOSION_OFFSET, -EXPLOSION_OFFSET))
+	add_explosion(position + Vector2(-EXPLOSION_OFFSET, EXPLOSION_OFFSET))
+	add_explosion(position + Vector2(EXPLOSION_OFFSET, EXPLOSION_OFFSET))
 	
 	yield(centerExplosion, "cleared")
 	game.unregister_level_lock(self)
 	queue_free()
 
-func add_explosion(position: Vector2) -> Node2D:
+func add_explosion(position: Vector2):
 	var explosion = Explosion.instance()
 	explosion.position = position
 	get_parent().add_child(explosion)
