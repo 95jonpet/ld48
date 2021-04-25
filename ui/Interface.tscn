@@ -1,10 +1,50 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://ui/Inventory.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ui/Interface.gd" type="Script" id=2]
 [ext_resource path="res://fonts/kenney_pixel16.tres" type="DynamicFont" id=3]
 
+[sub_resource type="Animation" id=1]
+resource_name = "ui-load"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Inventory:margin_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -32, 32.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("VBoxContainer:margin_left")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, -40.0 ]
+}
+
 [node name="Interface" type="Control"]
+modulate = Color( 1, 1, 1, 0 )
 margin_left = -120.0
 margin_top = -67.0
 margin_right = 120.0
@@ -19,13 +59,12 @@ __meta__ = {
 [node name="Inventory" parent="." instance=ExtResource( 1 )]
 anchor_top = 0.5
 anchor_bottom = 0.5
-margin_left = 32.0
+margin_left = -32.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -40.0
 margin_top = 4.0
 margin_right = -4.0
 margin_bottom = -4.0
@@ -40,3 +79,6 @@ margin_bottom = 12.0
 custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0.27451, 0.223529, 0.298039, 1 )
 text = "N - skip"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/ui-load = SubResource( 1 )
