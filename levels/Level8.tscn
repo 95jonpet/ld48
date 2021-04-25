@@ -1,0 +1,99 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://items/Dynamite.tres" type="Resource" id=1]
+[ext_resource path="res://tiles/StoneTile.tscn" type="PackedScene" id=2]
+[ext_resource path="res://grid/Grid.tscn" type="PackedScene" id=3]
+[ext_resource path="res://tiles/ObsidianTile.tscn" type="PackedScene" id=4]
+[ext_resource path="res://grid/GridPlaceholder.tscn" type="PackedScene" id=5]
+[ext_resource path="res://levels/Level.gd" type="Script" id=8]
+
+[node name="Level" type="Node2D"]
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+level_hint = "Stronger than stone"
+items = [ ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ) ]
+
+[node name="Grid" parent="." instance=ExtResource( 3 )]
+
+[node name="Placeholder2" parent="Grid" instance=ExtResource( 5 )]
+position = Vector2( -24, -48 )
+
+[node name="Placeholder3" parent="Grid" instance=ExtResource( 5 )]
+position = Vector2( 0, -48 )
+
+[node name="Placeholder4" parent="Grid" instance=ExtResource( 5 )]
+position = Vector2( 24, -48 )
+
+[node name="Placeholder6" parent="Grid" instance=ExtResource( 5 )]
+position = Vector2( -48, -24 )
+
+[node name="Placeholder7" parent="Grid" instance=ExtResource( 5 )]
+position = Vector2( -24, -24 )
+
+[node name="Placeholder8" parent="Grid" instance=ExtResource( 5 )]
+position = Vector2( 0, -24 )
+
+[node name="Placeholder9" parent="Grid" instance=ExtResource( 5 )]
+position = Vector2( 24, -24 )
+
+[node name="Placeholder10" parent="Grid" instance=ExtResource( 5 )]
+position = Vector2( 48, -24 )
+
+[node name="Placeholder11" parent="Grid" instance=ExtResource( 5 )]
+position = Vector2( -48, 0 )
+
+[node name="Placeholder12" parent="Grid" instance=ExtResource( 5 )]
+position = Vector2( -24, 0 )
+
+[node name="Placeholder13" parent="Grid" instance=ExtResource( 5 )]
+
+[node name="Placeholder14" parent="Grid" instance=ExtResource( 5 )]
+position = Vector2( 24, 0 )
+
+[node name="Placeholder15" parent="Grid" instance=ExtResource( 5 )]
+position = Vector2( 48, 0 )
+
+[node name="Placeholder16" parent="Grid" instance=ExtResource( 5 )]
+position = Vector2( -48, 24 )
+
+[node name="Placeholder17" parent="Grid" instance=ExtResource( 5 )]
+position = Vector2( -24, 24 )
+
+[node name="Placeholder18" parent="Grid" instance=ExtResource( 5 )]
+position = Vector2( 0, 24 )
+
+[node name="Placeholder19" parent="Grid" instance=ExtResource( 5 )]
+position = Vector2( 24, 24 )
+
+[node name="Placeholder20" parent="Grid" instance=ExtResource( 5 )]
+position = Vector2( 48, 24 )
+
+[node name="Placeholder22" parent="Grid" instance=ExtResource( 5 )]
+position = Vector2( -24, 48 )
+
+[node name="Placeholder23" parent="Grid" instance=ExtResource( 5 )]
+position = Vector2( 0, 48 )
+
+[node name="Placeholder24" parent="Grid" instance=ExtResource( 5 )]
+position = Vector2( 24, 48 )
+
+[node name="Tiles" type="Node2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="StoneTile2" parent="Tiles" instance=ExtResource( 4 )]
+position = Vector2( 0, -24 )
+
+[node name="StoneTile4" parent="Tiles" instance=ExtResource( 2 )]
+
+[node name="StoneTile5" parent="Tiles" instance=ExtResource( 2 )]
+position = Vector2( -24, 0 )
+
+[node name="StoneTile6" parent="Tiles" instance=ExtResource( 2 )]
+position = Vector2( 24, 0 )
+
+[node name="StoneTile7" parent="Tiles" instance=ExtResource( 2 )]
+position = Vector2( 0, 48 )

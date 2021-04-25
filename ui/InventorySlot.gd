@@ -10,8 +10,4 @@ func set_used(used: bool):
 	$ItemTextureRect.modulate = Color(0.5, 0.5, 0.5) if used else Color.white
 
 func display_item(item):
-	if item is Item:
-		$ItemTextureRect.texture = item.texture
-	else:
-		# TODO: Display empty slot.
-		pass
+	$ItemTextureRect.texture = item.texture

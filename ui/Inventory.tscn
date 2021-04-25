@@ -12,8 +12,9 @@ __meta__ = {
 }
 
 [node name="Container" type="VBoxContainer" parent="."]
+margin_top = 6.0
 margin_right = 24.0
-margin_bottom = 52.0
+margin_bottom = 58.0
 
 [node name="InventorySlot" parent="Container" instance=ExtResource( 1 )]
 margin_right = 24.0

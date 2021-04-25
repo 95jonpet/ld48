@@ -28,5 +28,6 @@ stream = ExtResource( 2 )
 stream = ExtResource( 3 )
 volume_db = -8.0
 autoplay = true
+bus = "Music"
 
 [connection signal="finished" from="MusicPlayer" to="MusicPlayer" method="play"]
